@@ -1,0 +1,59 @@
+
+import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const Tracker = () => {
+  const [visitor, setVisitor] = useState("");
+  const [visitors, setVisitors] = useState(new Set());
+  const addVisitor = () => {
+    if (!visitor.trim()) return;
+    if (visitors.has(visitor)) {
+      toast.warning("Visitor already exists!", {
+        autoClose: 2000,
+      });
+      return;
+    }
+    setVisitors(new Set([...visitors, visitor]));
+    toast.success("Visitor added successfully!", {
+      autoClose: 2000,
+    });
+    setVisitor("");
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-200 flex justify-center items-center">
+      <div className="bg-white p-6 rounded-xl shadow-md w-96 flex flex-col gap-4">
+        <h2 className="text-xl font-bold text-center">
+          Unique Visitor Tracker
+        </h2>
+        <input
+          type="text"
+          placeholder="Enter visitor ID / email"
+          value={visitor}
+          onChange={(e) => setVisitor(e.target.value)}
+          className="border px-3 py-2 rounded"
+        />
+        <button
+          onClick={addVisitor}
+          disabled={!visitor}
+          className="bg-blue-500 text-white py-2 rounded disabled:bg-gray-300"
+        >
+          Add Visitor
+        </button>
+        <p className="text-sm text-center">
+          Total Unique Visitors: <b>{visitors.size}</b>
+        </p>
+        <ul className="list-disc ml-5 text-sm">
+          {[...visitors].map((id, index) => (
+            <li key={index}>{id}</li>
+          ))}
+        </ul>
+      </div>
+      <ToastContainer position="top-center" />
+    </div>
+  );
+};
+
+export default Tracker;
+
