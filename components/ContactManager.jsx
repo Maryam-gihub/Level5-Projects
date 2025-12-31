@@ -4,7 +4,6 @@ const ContactManager = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
 
-  // ✅ Load from localStorage ONCE
   const [contacts, setContacts] = useState(() => {
     const saved = localStorage.getItem("contacts");
     return saved ? new Map(JSON.parse(saved)) : new Map();
@@ -13,7 +12,6 @@ const ContactManager = () => {
   const addContact = () => {
     if (!name || !phone) return;
 
-    // ✅ Create a NEW Map (important!)
     const newContacts = new Map(contacts);
     newContacts.set(name, phone);
 
@@ -22,7 +20,6 @@ const ContactManager = () => {
     setPhone("");
   };
 
-  // ✅ Save to localStorage whenever contacts change
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify([...contacts]));
   }, [contacts]);

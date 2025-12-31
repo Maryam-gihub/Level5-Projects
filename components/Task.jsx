@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 const Task = () => {
     const [task, setTask] = useState("")
     const [queue, setQueue] = useState([]);
-    // const [processingTask, setProcessingTask] = useState(null);
     const [processingIndex, setProcessingIndex] = useState(null);
 
 
@@ -16,26 +15,12 @@ const Task = () => {
     };
     const handleProcessTask = (index) => {
         if (index !== 0) return;
-
         setProcessingIndex(index);
-
         setTimeout(() => {
             setQueue((prevQueue) => prevQueue.slice(1));
             setProcessingIndex(null);
         }, 1500);
     };
-
-    // const handleProcessTask = () => {
-    //     if (queue.length === 0)
-    //         return;
-    //     const firstTask = queue[0];
-    //     setProcessingTask(firstTask);
-
-    //     setTimeout(() => {
-    //         setQueue(queue.slice(1)); 
-    //         setProcessingTask(null);  
-    //     }, 1500);
-    // };
 
 
 
