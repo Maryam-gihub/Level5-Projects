@@ -25,7 +25,7 @@ const ContactManager = () => {
   }, [contacts]);
 
   return (
-    <div className="min-h-screen bg-gray-200 flex justify-center items-center">
+    <div className="min-h-screen bg-green-200 flex justify-center items-center">
       <div className="bg-white p-6 rounded-xl shadow-md w-96 flex flex-col gap-4">
         <h2 className="text-xl font-bold text-center">Contact Manager</h2>
 
@@ -47,7 +47,7 @@ const ContactManager = () => {
 
         <button
           onClick={addContact}
-          className="bg-blue-500 text-white py-2 rounded"
+          className="bg-green-500 text-white py-2 rounded"
         >
           Add Contact
         </button>
