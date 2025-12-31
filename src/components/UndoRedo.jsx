@@ -24,7 +24,7 @@ const UndoRedo = () => {
     };
     return (
         <div className="min-h-screen bg-slate-200 flex justify-center items-center">
-            <div className="bg-white p-6 rounded-xl shadow-lg w-96 flex flex-col gap-4">
+            <div className="bg-gray-100 p-4 w-5/6 lg:w-1/3 rounded-xl drop-shadow-xl flex flex-col gap-4">
                 <h2 className="text-xl font-bold text-center">Undo–Redo System</h2>
                 <input
                     type="text"
